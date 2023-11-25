@@ -10,7 +10,7 @@ def ConquestCampaign(N, M, L, battalion):
             field.append(j)
 
     # deleting the first polygons
-    for p in range(0, L + 1, 2):
+    for p in range(0, len(battalion), 2):
         for e in range(0, len(field) - 1, 2):
             if field[e] == battalion[p] and field[e + 1] == battalion[p + 1]:
                 del field[e:e+2]
