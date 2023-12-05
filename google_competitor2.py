@@ -5,25 +5,32 @@ def WordSearch(len, s,  subs):
     for i in s:
         counter += 1
 
-    str_1 = '' # часть строки для каждой итерации
     list_f = [] # список для записи итоговых строк
 
     # строка разбивается на набор строк через выравнивание по заданной ширине
     while s != '':
         s_parth = s[0 : len]
-        if ' ' not in s_parth:
+        count = 0 # длина оставшейся строки s
+        for b in s:
+            count += 1
+        if len < count: # проверка того, чтобы длина строки была больше ширины выравнивания
+            next = s[len]
+        if ' ' not in s_parth: # если слово занимает всю ширину выравнивания
             list_f.append(s_parth)
             s = s[len:].lstrip()
-        else:
+        elif next == ' ': # если следующий символ после текушей ширины выраввнивания является пробелом
+            list_f.append(s_parth)
+            s = s[len:].lstrip()
+        else: # в остальных случаях
             last = s_parth.rfind(' ')
             s_parth_two = s[0:last].lstrip()
             list_f.append(s_parth_two)
             s = s[last + 1:]
+        next = ''
 
     # каждая строка проверяется на наличие в ней заданного целого слова
-
     list_ret = [] # итоговый список
-
+    
     # вычисляем длину искомой строки
     subs_counter = 0
     for k in subs:
