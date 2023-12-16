@@ -39,4 +39,6 @@ def BigMinus(s1, s2):
     
     # меняем порядок элементов строки, так как цикл шёл с конца строки
     final_line = preliminary_line[::-1].lstrip("0")
+    if final_line == '':
+        final_line = '0'
     return final_line
