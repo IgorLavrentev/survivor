@@ -8,7 +8,7 @@ def MassVote(N, Votes):
     # проверяем условие того, что максимальное число одно (выиграл только один кандидат)
     summ = 0
     flag = True
-    for j in range(N):
+    for j in range(1, N + 1):
         if list_percentages[j] == max(list_percentages):
             summ += 1
     if summ > 1:
