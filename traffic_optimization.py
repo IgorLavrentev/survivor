@@ -21,12 +21,9 @@ def Unmanned(L, N, track):
         if n == b[0]:
             time += b[0] - n
             time += 1   
-            print('1')
         if n < b[0]: 
             time += b[0] - n
-            print('2')
         if n > b[0]:
             time += 1 
-            print('3') 
 
     return time
