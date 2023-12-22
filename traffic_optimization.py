@@ -5,7 +5,7 @@ def Unmanned(L, N, track):
         el = track[k]
         dictionary[el[0]] = el[1:]
 
-    time = 1 # переменная времени
+    time = 0 # переменная времени
     for j in range(1, L + 1): # цикл по всей длине пути
         # вычисление сигнала светофора
         if j in dictionary and (dictionary.get(j)[0] + dictionary.get(j)[1]) < time:
@@ -21,10 +21,12 @@ def Unmanned(L, N, track):
         if n == b[0]:
             time += b[0] - n
             time += 1   
+            print('1')
         if n < b[0]: 
             time += b[0] - n
+            print('2')
         if n > b[0]:
-            time += 1  
+            time += 1 
+            print('3') 
 
     return time
-
