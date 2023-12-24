@@ -8,5 +8,6 @@ def TankRush(H1, W1, S1, H2, W2, S2):
         for j in List_S1:
             if i in j:
                 summ += 1
+                break
         if summ == len(List_S2):
             return True
