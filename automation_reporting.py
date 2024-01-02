@@ -1,4 +1,7 @@
 def ShopOLAP(N, items):
+    # обработка исключений
+    if N == 1:
+        return items
     # группирование продаж по названиям товаров
     count = 0 # счетчик количества совпадений в наименовании товара
     for i in range(N):
@@ -14,8 +17,10 @@ def ShopOLAP(N, items):
                 items.pop(i) 
                 items.append(' ')
                 count += 1
-    # удаление из писка временных элементов ' '             
-    del items[-count:]
+    
+    # удаление из писка временных элементов ' ' 
+    if count != 0:
+        del items[-count:]
 
     # сортировка по количеству продаж
     list_number = [] # список занчений продаж
