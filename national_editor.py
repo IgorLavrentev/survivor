@@ -2,12 +2,17 @@ def BastShoe(command):
     global n, list_changes, position, inp_previous # глобальные переменные
 
     # если команда задана некорректно возвращаем текцщую строку
+    if len(command) == 1 and (command[0] != '4' and command[0] != '5'):
+        list_changes.append(n)
+        position += 1
+        return n
+
     if command == '' or (command[0] != '1' and command[0] != '2' and command[0] != '3' and command[0] != '4' and command[0] != '5') :
         list_changes.append(n)
         position += 1
         return n
     
-    if (int(command[0]) == 1 or int(command[0]) == 2) and command[1] != ' ':
+    if (int(command[0]) == 1 or int(command[0]) == 2 or int(command[0]) == 3) and command[1] != ' ':
         list_changes.append(n)
         position += 1
         return n
@@ -42,8 +47,6 @@ def BastShoe(command):
         return n
 
     # 3. Выдать i-й символ текущей строки
-    if command == '3':
-        return n
     if command[0] == '3' and int(command[2:]) >= len(n):
         n = ''
         list_changes.append(n)
