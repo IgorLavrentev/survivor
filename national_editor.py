@@ -47,7 +47,7 @@ def BastShoe(command):
         return n
 
     # 3. Выдать i-й символ текущей строки
-    if command[0] == '3' and (int(command[2:]) >= len(n) or int(command[2:]) < -len(n)):
+    if command[0] == '3' and (int(command[2:]) >= len(n) or int(command[2:]) <= -1):
         n = ''
         list_changes.append(n)
         position += 1
