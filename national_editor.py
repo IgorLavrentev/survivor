@@ -51,12 +51,13 @@ def BastShoe(command):
         n = ''
         list_changes.append(n)
         position += 1
-        return n
+        return str(n)
     if command[0] == '3':
         i = int(command[2:])
         n = n[i]
         list_changes.append(n)
         position += 1
+        return str(n)
 
     # 4. Undo отмена последней операции 1 или 2
     if command[0] == '4' and position <= 0:
