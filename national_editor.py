@@ -47,7 +47,7 @@ def BastShoe(command):
         return n
 
     # 3. Выдать i-й символ текущей строки
-    if command[0] == '3' and int(command[2:]) >= len(n):
+    if command[0] == '3' and (int(command[2:]) >= len(n) or int(command[2:]) < -len(n)):
         n = ''
         list_changes.append(n)
         position += 1
@@ -59,7 +59,7 @@ def BastShoe(command):
         position += 1
 
     # 4. Undo отмена последней операции 1 или 2
-    if command[0] == '4' and position <= 1:
+    if command[0] == '4' and position <= 0:
         n = list_changes[0]
         position = 1
         return n
@@ -80,5 +80,5 @@ def BastShoe(command):
 
 n = '' # текущая строка
 list_changes = [] # список всех её изменений
-position = 0 #  переменная-позиция в списке list_changes
+position = -1 #  переменная-позиция в списке list_changes
 inp_previous = 0 # номер предыдущей команды
