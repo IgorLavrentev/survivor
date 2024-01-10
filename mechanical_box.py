@@ -9,27 +9,33 @@ def SherlockValidString(s):
         quantity = s.count(k)
         dictionary[k] = quantity
 
-    n = next(iter(dictionary.values())) # количество первых элементов в словаре (берем за эталонное количество)
-    key =  list(dictionary.keys())[0] # первый элемент в словаре (берем за эталонный элемент) 
+    # создание эталонного элемента
+    quantity_dictionary ={}
+    for h in dictionary:
+        quantity_dictionary[dictionary.get(h)] = 0
 
-    for j, r in dictionary.items(): # внесение вохможных изменений в словарь
-        if n != r and n == 1:
-            del dictionary[key[0]]
-            break
+    for g, g_1 in dictionary.items(): 
+        for l, l_1 in quantity_dictionary.items(): 
+            if g_1 == l:
+                quantity_dictionary[l] = l_1 + 1
 
-        if n != r and r == 1:
-            del dictionary[j]
-            break
+    # находим наиболее часто встречающийся элемент
+    maxx = 0
+    n = 0
+    for d, d_1 in quantity_dictionary.items(): 
+        if d_1 >= maxx:
+            maxx = d_1
+            n = d
 
-        if n != r and r < n:
-            dictionary[key[0]] = n - 1
-            break
-
+    # внесение вохможных изменений в словарь
+    for j, r in dictionary.items(): 
         if n != r and r > n:
             dictionary[j] = r - 1
             break
 
-    n = next(iter(dictionary.values())) # количество первых элементов в словаре (после возможных поправок)
+        if n != r and r < n and r == 1:
+            del dictionary[j]
+            break
 
     for t, u in dictionary.items(): # проверка на валидность
         if u != n:
