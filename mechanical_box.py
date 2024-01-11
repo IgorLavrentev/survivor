@@ -19,6 +19,17 @@ def SherlockValidString(s):
             if g_1 == l:
                 quantity_dictionary[l] = l_1 + 1
 
+    # обработка исключений
+    if len(dictionary) == 2:
+        key_1 = dictionary[list(dictionary.keys())[0]] # первый элемент словаря
+        key_2 = dictionary[list(dictionary.keys())[1]] # второй элемент словаря
+    if len(dictionary) == 2 and int(key_1) == int(key_2):
+        return True
+    if len(dictionary) == 2 and int(key_1) == int(key_2) - 1:
+        return True
+    if len(dictionary) == 2 and int(key_1) - 1 == int(key_2):
+        return True
+
     # находим наиболее часто встречающийся элемент
     maxx = 0
     n = 0
