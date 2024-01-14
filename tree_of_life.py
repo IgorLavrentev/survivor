@@ -203,7 +203,7 @@ def TreeOfLife(H, W, N, tree):
         return initial_list_3
 
 
-    for j in range(N - 1):
+    for j in range(N):
 
         # четный год (ветки растут)
         if j % 2 == 0:
