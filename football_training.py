@@ -1,5 +1,13 @@
 def Football(F:list[int], N: int) -> bool:
 
+    # обработка исключений
+    summ_el: int = 0 
+    for el in range(len(F) - 1):
+        if F[el] < F[el+1]:
+            summ_el += 1
+    if summ_el == N - 1:
+        return False
+
     # вариант 1: поменять местами два произвольных элемента массива
     for i in range(N):
         for j in range(N):
